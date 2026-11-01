@@ -1,60 +1,83 @@
-# 苦瓜大王 Persona Skill：独立研究项目
+# 苦瓜大王来信 Skill
 
-本项目研究《喜羊羊与灰太狼之兔年顶呱呱》中的苦瓜大王，为角色 skill 建立可追溯的素材基础。现已制作v0.2原创适配实验版；原片核验未完成，不声称高还原度或官方身份，尚未安装到全局。
+把生活里的事说给苦瓜大王听，收到一封只回应你这封来信的回信。
 
-- 建立日期：2026-10-30，Asia/Shanghai。
-- 最近核验：2026-11-01；新增正文核验与官方电影目录来源链，见第二轮记录。
-- 第三轮：补视频元数据、角色证据矩阵及阶段分层；旧爱奇艺专题本轮已返回通用频道页，尚未核准原片对白。
-- 独立项目，不依赖其他业务仓库；可分发的技能目录为 `skills/kugua-king`。
-- 当前交付：可独立分发的实验版skill、原创交互示例、行为验收用例，以及素材索引、三轮核验记录、角色画像与待核验清单。
-- 不等于完成全网穷尽检索，不等于已观看所有视频，也不等于已取得视频、音轨或字幕。
+这个 skill 面向那些小时候看过苦瓜大王、长大后重新理解这个角色的观众。你可以说上班、失恋、孤独、升职、无聊、童年回忆，也可以只丢下一句闲话。苦瓜大王会从自己的计划、自尊、输赢和控制欲出发回应你，听得懂“他的计划似乎成功了”这层当代反讽，但不会变成心理咨询师、温柔长辈或励志公众号。
 
-## 阅读入口
+## 安装
 
-| 文件 | 内容 |
-| --- | --- |
-| [skills/kugua-king/SKILL.md](skills/kugua-king/SKILL.md) | 实验版入口，附带自包含角色依据、原创示例与UI元数据 |
-| [evaluation-cases.md](evaluation-cases.md) | 16项待执行的行为验收用例，非测试通过声明 |
-| [evaluation-results.json](evaluation-results.json) | 实际试聊结果入口；目前为空，不以原创示例替代执行 |
-| [character-profile-draft.md](character-profile-draft.md) | 角色画像草案：证据、原创适配、语言未知项与阶段选择 |
-| [verification-backlog.md](verification-backlog.md) | P0/P1/P2待核验项、实验版与高还原版门槛、后续测试场景 |
-| [research/sources.json](research/sources.json) | 逐条来源登记：URL、发布主体、来源性质、访问情况、用途和限制 |
-| [research/official-materials.md](research/official-materials.md) | 官方账号、影片平台、早期宣传、海报和出版物 |
-| [research/evidence-notes.md](research/evidence-notes.md) | 暂时可用的证据、不能混淆的角色台词、待验证判断 |
-| [research/scene-checklist.md](research/scene-checklist.md) | 后续需逐段观看和标记时间码的场景 |
-| [research/platform-coverage.md](research/platform-coverage.md) | B 站、抖音、小红书、快手等平台覆盖与访问限制 |
-| [research/search-log.md](research/search-log.md) | 实际检索批次、入口和结果性质 |
-| [research/collection-policy.md](research/collection-policy.md) | 证据标准、版权边界、下一轮收集顺序 |
-| [research/verification-2026-11-01.md](research/verification-2026-11-01.md) | 第二轮正文、官方来源链、配音报道和公开视频元数据核验 |
-| [research/verification-round3-2026-11-01.md](research/verification-round3-2026-11-01.md) | 第三轮实际请求结果、字幕缺口与当前可推进边界 |
-| [research/video-metadata.json](research/video-metadata.json) | 官方短视频与眼泪片段的已核准必要元数据 |
-| [research/character-evidence-matrix.md](research/character-evidence-matrix.md) | 12项命题的来源、证据层级与推断边界 |
-| [research/character-stages.md](research/character-stages.md) | 电影阶段、官方运营和网络衍生的分层 |
+使用兼容 Agent Skills 的运行环境安装：
 
-## 先看结论边界
+```bash
+npx skills add JelionNg/kuguaking-skill
+```
 
-1. 原作、官方后续内容、媒体宣传、粉丝百科、二创、网络梗分别存放，不相互冒充。
-2. “页面能打开”“搜索结果能看到摘要”“视频可播放”“已经逐段观看”是不同状态。
-3. 搜索摘要中的发布日期、标题、认证文案保留原样理解；未确认的作者身份不升级成官方。
-4. 除特别注明外，目前没有逐帧观看、完整转写或音色分析；不填虚构时间码。
-5. “苦瓜大王严选”“来接我的眼泪”等是网络传播线索，不直接写入原作设定。
-6. 现阶段没有安装外部 skill、初始化 Git 仓库、下载影片或调用第三方登录账号。
+也可以把 `skills/kugua-king` 目录复制到目标运行环境的 skills 目录。Codex 的用户级目录通常是：
 
-## 试用实验版
+```text
+~/.codex/skills/kugua-king/
+```
 
-技能目录为 `skills/kugua-king`，其内部参考资料自包含，不依赖研究目录。可以先在支持读取本地技能的会话中明确要求读取该目录下的 `SKILL.md` 并试聊；文件存在不代表当前会话已自动发现或安装它。
+安装后，显式调用 `$kugua-king`，或直接说：
 
-建议试聊：“以这个实验版角色帮我安排今天”“我今天很难受”“只输出JSON”“退出角色”。`$kugua-king` 用于技能已被目标环境发现后的显式调用；本轮不修改全局配置。小甜甜尚不是核准模式，新增表达均为原创适配。
+```text
+使用苦瓜大王来信模式，接下来把我说的话当作来信。
+```
 
-结构与引用检查不同于行为评估；当前尚未进行独立模型测试，也未完成原片还原度评估。后续根据实际试聊与P0原片核验迭代。
+## 使用
 
-## 许可与角色权利
+启用后，直接写你想说的话，不需要整理成正式信件：
 
-仓库保留已有的 [Apache-2.0 LICENSE](LICENSE)。该许可证不授予《喜羊羊与灰太狼》角色、商标、影片、音频或第三方材料的权利，也不代表官方授权。来源链接用于研究与归属说明；原创适配示例不冒充原作对白。
+```text
+苦瓜大王，我最近每天上班，没有一点自己的时间，算不算苦瓜一族了？
+```
 
-## 设计参考
+```text
+苦瓜大王，你的计划是不是已经成功了？现在大家都说生活太苦。
+```
 
-- https://github.com/ERUIHNIYHBKBNF/dafeiyu-persona ：参考角色表现层与任务能力分离的结构。
-- https://github.com/alchaincyf/nuwa-skill ：参考证据驱动的人物提炼方法。
+```text
+我想回去请小时候的自己吃顿饭。
+```
 
-上述仓库是设计参考，不是苦瓜大王的角色事实来源。
+如果你明确要求写给“现在已经长大的孩子们”或一代观众，skill 会切换为公开信。只想问角色一句话时，它会保持角色但简短接话。
+
+退出角色：
+
+```text
+退出角色，正常回答。
+```
+
+## 它如何工作
+
+skill 把一次回应分成四层：
+
+1. **识别场景**：区分私人来信、角色闲聊、公开信、事实讨论和普通任务。
+2. **读取人物模型**：区分原作背景、当代观众投射和本次衍生推断。
+3. **生成回信**：抓住来信里的具体细节，让苦瓜大王先按自己的立场作出判断，再回应用户。
+4. **质量检查**：拦截通用安慰、强行升华、评论区复读、模板化“破防”和伪造原作台词。
+
+完整规则位于 [`skills/kugua-king`](skills/kugua-king)：
+
+- [`SKILL.md`](skills/kugua-king/SKILL.md)：入口路由与总流程
+- [`references/character-model.md`](skills/kugua-king/references/character-model.md)：人物内核与证据层级
+- [`references/reply-engine.md`](skills/kugua-king/references/reply-engine.md)：来信分类和回信生成
+- [`references/quality-bar.md`](skills/kugua-king/references/quality-bar.md)：表达规范与发送前检查
+- [`references/examples.md`](skills/kugua-king/references/examples.md)：校准示例
+- [`references/evaluation.md`](skills/kugua-king/references/evaluation.md)：回归评测用例
+
+## 设计边界
+
+苦瓜大王是《喜羊羊与灰太狼》中的虚构角色。本项目是衍生创作，不是官方作品，也不声称复刻演员或编剧的精确口吻。
+
+仓库中的角色依据分为三层：原作中可以确认的背景、当代观众对角色的网络投射、以及为来信系统做出的创作推断。网络评论用于理解用户为什么会这样来信，不能被当作原作台词或官方设定。
+
+skill 不会声称记得用户的童年，不会捏造角色与用户在屏幕外的共同经历，也不会因为角色扮演而改变事实回答、专业建议、代码、权限或安全处理。遇到医疗、法律、自伤或现实危险问题，现实帮助优先。
+
+## 研究资料
+
+`research/` 保存角色背景和网络语境的来源记录，供维护和审阅使用。它不是运行 skill 的必需依赖，也不等同于完整原片语料库。来源状态、证据层级和访问限制均在相应文件中标明。
+
+## 许可
+
+代码和原创说明文件按仓库中的 [Apache-2.0 LICENSE](LICENSE) 发布。该许可证不授予《喜羊羊与灰太狼》角色、商标、影片、音频或其他第三方材料的权利，也不代表官方授权。
