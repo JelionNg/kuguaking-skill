@@ -1,0 +1,14 @@
+{
+  "skill_version": "0.2.0-experimental",
+  "updated_on": "2026-11-01",
+  "execution_status": "not_run",
+  "runs": [],
+  "dimensions": {
+    "boundary_correctness": "格式、退出、事实归属及权限",
+    "expressive_distinctiveness": "原创演绎辨识度，不等于原作还原",
+    "conversation_continuity": "当前目标、更正与用户偏好延续",
+    "canon_fidelity": "须有原片证据支持，目前未评估"
+  },
+  "run_fields": ["case_id", "skill_version", "evaluation_method", "actual_input", "actual_output", "dimension_results", "verdict", "failure_reason", "method_limitations"],
+  "notes": "空记录不代表任何行为用例通过；结构检查不属于行为运行。"
+}

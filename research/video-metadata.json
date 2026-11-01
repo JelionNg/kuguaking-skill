@@ -1,0 +1,36 @@
+{
+  "verified_on": "2026-11-01",
+  "timezone": "Asia/Shanghai",
+  "method": "B站公开view接口及匿名播放器元数据；未播放或下载视频",
+  "privacy": "仅摘录核验必要字段，不保存原始播放器响应中的IP或验证凭据",
+  "videos": [
+    {
+      "source_id": "S002",
+      "bvid": "BV1JgpHzvE76",
+      "aid": 115197532440294,
+      "cid": 32362463497,
+      "title": "喝了这碗苦瓜汤，我就是你的小甜甜～",
+      "owner_name": "灰太狼办公室",
+      "owner_mid": 31832612,
+      "duration_seconds": 25,
+      "published_at": "2025-09-13T22:52:35+08:00",
+      "subtitle_observation": "匿名播放器响应含subtitle对象，但subtitles为空列表",
+      "watched": false,
+      "dialogue_verified": false
+    },
+    {
+      "source_id": "S022",
+      "bvid": "BV1PA4m1j7QP",
+      "aid": 1100161283,
+      "cid": 1426458954,
+      "title": "苦瓜大王说灰太狼拥有世界上最苦的眼泪",
+      "owner_name": "娱乐么么茶",
+      "owner_mid": 244754810,
+      "duration_seconds": 29,
+      "published_at": "2024-02-01T15:48:39+08:00",
+      "subtitle_observation": "准确aid/cid请求返回code=0，但data未提供可用subtitle对象；不能断言没有字幕",
+      "watched": false,
+      "dialogue_verified": false
+    }
+  ]
+}
